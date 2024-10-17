@@ -1,24 +1,30 @@
 #include <iostream>
+#include <cmath>    
 using namespace std;
 
 int main() {
-    const double SUGAR = 1.5;   
-    const double BUTTER = 1.0; 
-    const double FLOUR = 2.75; 
-    const int COOKIES = 48;    
+    double principal, rate;
+    int timesCompounded;
 
-    int cookiesWanted;
-    cout << "How many cookies do you want to make? ";
-    cin >> cookiesWanted;
+    cout << "Enter the principal: $";
+    cin >> principal;
+    cout << "Enter the annual interest rate (as a percentage): ";
+    cin >> rate;
+    cout << "Enter the number of times the interest is compounded annually: ";
+    cin >> timesCompounded;
 
-    double sugarNeeded = (SUGAR / COOKIES) * cookiesWanted;
-    double butterNeeded = (BUTTER / COOKIES) * cookiesWanted;
-    double flourNeeded = (FLOUR / COOKIES) * cookiesWanted;
+    
+    rate = rate / 100;
 
-    cout << "For " << cookiesWanted << " cookies, you will need:\n";
-    cout << sugarNeeded << " cups of sugar\n";
-    cout << butterNeeded << " cups of butter\n";
-    cout << flourNeeded << " cups of flour\n";
+   
+    double balance = principal * pow(1 + (rate / timesCompounded), timesCompounded);
+
+   
+    cout << "\nInterest Report\n";
+    cout << "Principal: $" << principal << endl;
+    cout << "Annual Interest Rate: " << rate * 100 << "%" << endl;
+    cout << "Times Compounded: " << timesCompounded << endl;
+    cout << "Balance after one year: $" << balance << endl;
 
     return 0;
 }
